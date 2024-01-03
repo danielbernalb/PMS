@@ -27,13 +27,13 @@ void loop()
     Serial.print("PM 10.0 (ug/m3): ");
     Serial.println(data.PM_AE_UG_10_0);
 
-    Serial1.print("Temperature °C: ");
-    Serial1.println(data.TEMP_C);
+    Serial.print("Temperature °C: ");
+    Serial.println(data.TEMP_C);
     
-    Serial1.print("Humidity °C: ");
-    Serial1.println(data.HUMI_P);
+    Serial.print("Humidity °C: ");
+    Serial.println(data.HUMI_P);
 
-    Serial1.println();
+    Serial.println();
   }
 
   // Do other stuff...
