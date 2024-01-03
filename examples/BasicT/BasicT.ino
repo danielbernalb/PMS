@@ -1,3 +1,5 @@
+// Read PM 1, PM 2.5, PM10, Temperature and Humidity PMSx003T
+
 #include "PMS.h"
 
 PMS pms(Serial);
@@ -23,10 +25,10 @@ void loop()
     Serial1.println(data.PM_AE_UG_10_0);
 
     Serial1.print("Temperature °C: ");
-    Serial1.println(data.TEMP_C);
+    Serial1.print(data.TEMP);
     
-    Serial1.print("Humidity °C: ");
-    Serial1.println(data.HUMI_P);
+    Serial1.print("Humidity %: ");
+    Serial1.print(data.HUMI);
 
     Serial1.println();
   }

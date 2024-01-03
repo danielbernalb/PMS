@@ -1,3 +1,5 @@
+// Read PM 1, PM 2.5, PM10, Temperature and Humidity PMSx003T with SoftwareSerial
+
 #include "PMS.h"
 #include <SoftwareSerial.h>
 
@@ -11,7 +13,7 @@ void setup()
   pmsSerial.begin(9600); // Software serial begin for PMS sensor
   Serial.println("");
   Serial.println("Start PMSx003T: ");
-  delay(1000);
+  delay(100);
 }
 
 void loop()
@@ -30,13 +32,9 @@ void loop()
 
     Serial.print("Temperature °C: ");
     Serial.print(data.TEMP);
-    Serial.print("  -  round: ");
-    Serial.println(round(TEMPround));
-    
+
     Serial.print("Humidity %: ");
     Serial.print(data.HUMI);
-    Serial.print("  -  round: ");
-    Serial.println(round(HUMI));
 
     Serial.println();
   }
