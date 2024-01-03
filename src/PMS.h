@@ -24,8 +24,8 @@ public:
     uint16_t PM_AE_UG_10_0;
 
     // Temperature & humidity - PMSxxxxST units only
-    int16_t TEMP_C;
-    uint16_t HUMI_P; 
+    float TEMP_C;
+    float HUMI_P;
   };
 
   PMS(Stream&);
@@ -42,7 +42,7 @@ private:
   enum STATUS { STATUS_WAITING, STATUS_OK };
   enum MODE { MODE_ACTIVE, MODE_PASSIVE };
 
-  uint8_t _payload[16];
+  uint8_t _payload[50];
   Stream* _stream;
   DATA* _data;
   STATUS _status;
