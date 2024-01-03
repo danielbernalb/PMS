@@ -72,8 +72,6 @@ bool PMS::readUntil(DATA& data, uint16_t timeout)
 void PMS::loop()
 {
   _status = STATUS_WAITING;
-  int16_t _TEMP_C;
-  uint16_t _HUMI_P; 
   if (_stream->available())
   {
     uint8_t ch = _stream->read();
@@ -137,10 +135,8 @@ void PMS::loop()
           _data->PM_AE_UG_10_0 = makeWord(_payload[10], _payload[11]);
 
           // Temperature & humidity (PMSxxxxT units)
-          _data->_TEMP_C = makeWord(_payload[20], _payload[21]);
-          _data->_HUMI_P = makeWord(_payload[22], _payload[23]);
-          TEMP_C = _TEMP_C / 10;
-          HUMI_P = _HUMI_P / 10;
+          _data->TEMP_C = (makeWord(_payload[20], _payload[21])) / 10;
+          _data->HUMI_P = (makeWord(_payload[22], _payload[23])) / 10;
         }
 
         _index = 0;
