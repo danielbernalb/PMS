@@ -1,8 +1,8 @@
-# PMS Library
-Arduino library for Plantower PMS sensors.
-Supports PMS x003 sensors (1003, 3003, 5003, 6003, 7003).
+# PMST Library forked of PMS Library
+Arduino library for Plantower PMS and PMS T sensors.
+Supports PMSx003 and PMSx003T sensors (1003, 3003, 5003, 5003T, 6003, 7003, 7003T, A003).
 ## Installation
-Just use Arduino Library Manager and search "PMS Library" in Sensors category.
+Just use Arduino Library Manager and search "PMS_T Library" in Sensors category.
 ## Main assumptions
 - easy as possible,
 - minimal memory consumption,
@@ -54,6 +54,63 @@ PM 10.0 (ug/m3): 23
 PM 1.0 (ug/m3): 12
 PM 2.5 (ug/m3): 19
 PM 10.0 (ug/m3): 24
+
+...
+```
+## Basic T example for PMSx003T
+Read in active mode.
+> Default mode is active after power up. In this mode sensor would send serial data to the host automatically. The active mode is divided into two sub-modes: stable mode and fast mode. If the concentration change is small the sensor would run at stable mode with the real interval of 2.3s. And if the change is big the sensor would be changed to fast mode automatically with the interval of 200~800ms, the higher of the concentration, the shorter of the interval.
+```cpp
+#include "PMS.h"
+
+PMS pms(Serial);
+PMS::DATA data;
+
+void setup()
+{
+  Serial.begin(9600);   // GPIO1, GPIO3 (TX/RX pin on ESP-12E Development Board)
+  Serial1.begin(9600);  // GPIO2 (D4 pin on ESP-12E Development Board)
+}
+
+void loop()
+{
+  if (pms.read(data))
+  {
+    Serial1.print("PM 1.0 (ug/m3): ");
+    Serial1.println(data.PM_AE_UG_1_0);
+
+    Serial1.print("PM 2.5 (ug/m3): ");
+    Serial1.println(data.PM_AE_UG_2_5);
+
+    Serial1.print("PM 10.0 (ug/m3): ");
+    Serial1.println(data.PM_AE_UG_10_0);
+
+    Serial1.print("Temperature °C: ");
+    Serial1.println(data.TEMP);
+    
+    Serial1.print("Humidity %: ");
+    Serial1.println(data.HUMI);
+
+    Serial1.println();
+  }
+
+  // Do other stuff...
+}
+```
+## Output
+```
+PM 1.0 (ug/m3): 13
+PM 2.5 (ug/m3): 18
+PM 10.0 (ug/m3): 23
+Temperature °C: 22.90
+Humidity %: 49.70
+
+
+PM 1.0 (ug/m3): 12
+PM 2.5 (ug/m3): 19
+PM 10.0 (ug/m3): 24
+Temperature °C: 22.90
+Humidity %: 49.80
 
 ...
 ```
@@ -123,7 +180,7 @@ Going to sleep for 60 seconds.
 ...
 ```
 ## Additional remarks
-Tested with PMS 7003 and ESP-12E Development Board.
+Tested with PMS7003 and PMS7003T on ESP-12E Development Board.
 All Plantower PMS sensors uses the same protocol (let me know if you have any problems).
 
 Please consider, that delay() function in examples is a blocking function.  
