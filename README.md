@@ -1,5 +1,5 @@
-# PMST Library forked of PMS Library
-Arduino library for Plantower PMS and PMS T sensors.
+# PMST Library
+Arduino library for Plantower PMS and PMS T sensors, forked from fu-hsi/PMS
 Supports PMSx003 and PMSx003T sensors (1003, 3003, 5003, 5003T, 6003, 7003, 7003T, A003).
 ## Installation
 Just use Arduino Library Manager and search "PMS_T Library" in Sensors category.
@@ -59,7 +59,6 @@ PM 10.0 (ug/m3): 24
 ```
 ## Basic T example for PMSx003T
 Read in active mode.
-> Default mode is active after power up. In this mode sensor would send serial data to the host automatically. The active mode is divided into two sub-modes: stable mode and fast mode. If the concentration change is small the sensor would run at stable mode with the real interval of 2.3s. And if the change is big the sensor would be changed to fast mode automatically with the interval of 200~800ms, the higher of the concentration, the shorter of the interval.
 ```cpp
 #include "PMS.h"
 
