@@ -24,8 +24,8 @@ public:
     uint16_t PM_AE_UG_10_0;
 
     // Temperature & humidity - PMSxxxxST units only
-    float TEMP_C;
-    float HUMI_P;
+    int16_t TEMPx10;
+    uint16_t HUMIx10;
   };
 
   PMS(Stream&);
