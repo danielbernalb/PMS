@@ -31,10 +31,10 @@ void loop()
     Serial.println(data.PM_AE_UG_10_0);
 
     Serial.print("Temperature °C: ");
-    Serial.print(data.TEMP);
+    Serial.println(data.TEMP);
 
     Serial.print("Humidity %: ");
-    Serial.print(data.HUMI);
+    Serial.println(data.HUMI);
 
     Serial.println();
   }

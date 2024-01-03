@@ -25,10 +25,10 @@ void loop()
     Serial1.println(data.PM_AE_UG_10_0);
 
     Serial1.print("Temperature °C: ");
-    Serial1.print(data.TEMP);
+    Serial1.println(data.TEMP);
     
     Serial1.print("Humidity %: ");
-    Serial1.print(data.HUMI);
+    Serial1.println(data.HUMI);
 
     Serial1.println();
   }
