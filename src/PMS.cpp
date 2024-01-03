@@ -137,6 +137,8 @@ void PMS::loop()
           // Temperature & humidity (PMSxxxxT units)
           _data->TEMP_C = (makeWord(_payload[20], _payload[21])) / 10;
           _data->HUMI_P = (makeWord(_payload[22], _payload[23])) / 10;
+          Serial.println(makeWord(_payload[20], _payload[21])))
+          Serial.println(TEMP_C)
         }
 
         _index = 0;
