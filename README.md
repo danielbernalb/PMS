@@ -1,5 +1,5 @@
 # PMST Library
-Arduino library for Plantower PMS and PMS T sensors, forked from fu-hsi/PMS
+Arduino library for Plantower PMS and PMS T sensors, forked from fu-hsi/PMS.
 Supports PMSx003 and PMSx003T sensors (1003, 3003, 5003, 5003T, 6003, 7003, 7003T, A003).
 ## Installation
 Just use Arduino Library Manager and search "PMS_T Library" in Sensors category.
