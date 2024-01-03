@@ -135,8 +135,8 @@ void PMS::loop()
           _data->PM_AE_UG_10_0 = makeWord(_payload[10], _payload[11]);
 
           // Temperature & humidity (PMSxxxxT units)
-          _data->TEMPx10 = makeWord(_payload[20], _payload[21]);
-          _data->HUMIx10 = makeWord(_payload[22], _payload[23]);
+          _data->TEMP = (makeWord(_payload[20], _payload[21])) / 10.0;
+          _data->HUMI = (makeWord(_payload[22], _payload[23])) / 10.0;
         }
 
         _index = 0;

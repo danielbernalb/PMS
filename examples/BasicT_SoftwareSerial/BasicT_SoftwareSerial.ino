@@ -16,6 +16,7 @@ void setup()
 
 void loop()
 {
+
   if (pms.readUntil(data))
   {
     Serial.print("PM 1.0 (ug/m3): ");
@@ -28,10 +29,14 @@ void loop()
     Serial.println(data.PM_AE_UG_10_0);
 
     Serial.print("Temperature °C: ");
-    Serial.println(data.TEMP_C);
+    Serial.print(data.TEMP);
+    Serial.print("  -  round: ");
+    Serial.println(round(TEMPround));
     
-    Serial.print("Humidity °C: ");
-    Serial.println(data.HUMI_P);
+    Serial.print("Humidity %: ");
+    Serial.print(data.HUMI);
+    Serial.print("  -  round: ");
+    Serial.println(round(HUMI));
 
     Serial.println();
   }
