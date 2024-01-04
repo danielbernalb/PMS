@@ -42,7 +42,7 @@ private:
   enum STATUS { STATUS_WAITING, STATUS_OK };
   enum MODE { MODE_ACTIVE, MODE_PASSIVE };
 
-  uint8_t _payload[50];
+  uint8_t _payload[32];
   Stream* _stream;
   DATA* _data;
   STATUS _status;
